@@ -2,7 +2,7 @@ class SitesController < ApplicationController
 
   def landing
     params = {
-           limit: 3,
+           limit: 5,
            category_filter: 'dog_parks',
            #term: params[:term],
          }
