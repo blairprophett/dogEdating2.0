@@ -14,6 +14,9 @@ gem 'devise'
 gem 'carrierwave'
 gem "fog", "~> 1.3.1"
 
+#Yelp gem to access yelp search API
+gem 'yelp'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
