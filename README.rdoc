@@ -3,3 +3,4 @@
 gem install carrierwave
 gem install pg
 gem install fog
+gem install oauth

@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'json'
+gem 'typhoeus'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 # Use postgresql as the database for Active Record
@@ -11,6 +14,9 @@ gem 'devise'
 #Gems for image upload
 gem 'carrierwave'
 gem "fog", "~> 1.3.1"
+
+#Yelp gem to access yelp search API
+gem 'yelp', require: 'yelp'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -27,6 +33,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 #use Kaminari to simplify pagination of data
 gem 'kaminari'
+
+gem 'dotenv-rails'
 
 group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
@@ -47,8 +55,6 @@ group :development, :test do
   gem 'pry-rails'
   # Use pry-debugger for debugging
   gem 'pry-debugger'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
 end
 
 group :production do
