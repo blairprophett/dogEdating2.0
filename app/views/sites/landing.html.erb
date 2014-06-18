@@ -5,16 +5,23 @@
   <%#= submit_tag("Search") %>
 <%# end %>
 
-<% @results['businesses'].each do |business| %>
+<div class= search-form>
+  <form method="get" action="/">
+    <input type="text" name="term" placeholder="Search Dog Parks">
+    <input type="submit">
+  </form>
+</div><br/>
+
+<% @yelp_info.each do |business| %>
   <strong><%= business['name'] %></strong><br/>
   <img src="<%= business['image_url'] %>" /><br/>
   <strong>Neghborhood:</strong> <%= business['location']['neighborhoods'][0] %><br/>
   <%= business['location']['address'][0] %><br/>
   <%= business['location']['display_address'][2] %><br/>
-  <a href="<%= business['url'] %>">View on Yelp</a><br/><br/>
-
-    <%# business['location']['display_address'].each do |item| %>
-      <%#= item %>
-    <%# end  %>   
+  <a href="<%= business['url'] %>">View on Yelp</a><br/><br/> 
 <% end  %>
 
+
+   <%# business['location']['display_address'].each do |item| %>
+      <%#= item %>
+    <%# end  %> 
