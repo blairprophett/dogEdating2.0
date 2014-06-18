@@ -12,6 +12,9 @@ gem 'devise'
 gem 'carrierwave'
 gem "fog", "~> 1.3.1"
 
+#Yelp gem to access yelp search API
+gem 'yelp'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -47,8 +50,6 @@ group :development, :test do
   gem 'pry-rails'
   # Use pry-debugger for debugging
   gem 'pry-debugger'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
 end
 
 group :production do
