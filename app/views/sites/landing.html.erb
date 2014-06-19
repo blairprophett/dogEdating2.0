@@ -12,15 +12,17 @@
   </form>
 </div><br/>
 
-<% @yelp_info.each do |business| %> 
-<!-- add code for if an item is nil -->
-  <strong><%= business['name'] %></strong><br/>
-  <img src="<%= business['image_url'] %>" /><br/> 
-  <strong>Neghborhood:</strong> <%= business['location']['neighborhoods'][0] %><br/>
-  <%= business['location']['address'][0] %><br/>
-  <%= business['location']['display_address'][2] %><br/>
-  <a href="<%= business['url'] %>">View on Yelp</a><br/><br/> 
-<% end  %>
+<div class='yelp-results'>
+  <% @yelp_info.each do |business| %> 
+  <!-- add code for if an item is nil -->
+    <strong><%= business['name'] %></strong><br/>
+    <img src="<%= business['image_url'] %>" /><br/> 
+    <strong>Neighborhood:</strong> <%= business['location']['neighborhoods'][0] %><br/>
+    <%= business['location']['address'][0] %><br/>
+    <%= business['location']['display_address'][2] %><br/>
+    <a href="<%= business['url'] %>">View on Yelp</a><br/><br/> 
+  <% end  %>
+</div>
 
 
    <%# business['location']['display_address'].each do |item| %>
