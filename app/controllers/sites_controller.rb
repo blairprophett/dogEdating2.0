@@ -2,7 +2,7 @@ class SitesController < ApplicationController
 
   def landing
     params = {
-           limit: 5,
+           limit: 3,
            category_filter: 'dog_parks',
            #term: params[:term],
          }
@@ -16,14 +16,14 @@ class SitesController < ApplicationController
     @yelp_info = @results['businesses']
 
     # @yelp_info.each do |business|
-       #@name = @yelp_info[0]
-       #binding.pry
+    #    @name = business['name']
+       # binding.pry
     #   @img = business['image_url']
     #   @neighborhood = business['location']['neighborhoods'][0]
     #   @address = business['location']['address'][0]
     #   @zip = business['location']['display_address'][2]
     #   @yelp_url = business['url']
-    # end
+   # end
 
   end
 
