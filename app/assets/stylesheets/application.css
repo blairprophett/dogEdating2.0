@@ -14,3 +14,102 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  background-color: #838B8B;
+}
+
+header {
+  background-color:  #838B8B;
+}
+
+.navbar, navbar-custom {
+  margin: 12px;
+  border-radius: 15px;
+  background-color: lightblue
+}
+
+/*.footer {
+  background-color: lightgreen;
+  height: 40px;
+  text-align: right;
+  padding-right: 20px;
+  padding-top: 10px;
+  margin: 8px;
+  border-radius: 15px;
+}*/
+
+.container-footer {
+  background-color: lightgreen;
+  height: 40px;
+  text-align: right;
+  padding-right: 20px;
+  padding-top: 10px;
+  margin: 8px;
+  border-radius: 15px;
+}
+
+.footer > a {
+  color: white;
+
+}
+
+ .HolyGrail {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.HolyGrail-body {
+  display: flex;
+  flex: 1;
+  text-align: center;
+}
+
+.HolyGrail-content {
+  background-color: beige;
+  text-align: center;
+  margin: 0px 15px;
+  border-radius: 15px;
+  flex: 1;
+  text-align: center;
+
+}
+
+.HolyGrail-nav {
+  /* put the nav on the left */
+  order: -1;
+  background-color: #FF6A6A;
+  margin: 0px 0 0px 10px;
+  border-radius: 15px;
+}
+
+.HolyGrail-ads {
+  background-color: violet;
+  margin: 0px 10px 0px 0px;
+  border-radius: 15px;
+}
+
+.HolyGrail-nav, .HolyGrail-ads {
+    /* 12em is the width of the columns */
+    flex: 0 0 12em;
+  }
+
+@media (min-width: 768px) {
+  .HolyGrail-body {
+    flex-direction: row;
+  }
+}
+
+/*parks#search*/
+.yelp-results {
+  flex-wrap: wrap;
+  text-align: left;
+  align-items: baseline;
+}
+
+.yelp-photo {
+  text-align: right;
+}
+
+

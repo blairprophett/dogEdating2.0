@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   root 'sites#landing'
 
+  get '/contact', to: 'sites#contact'
+  get '/about', to: 'sites#about'
+
   resources :dogs
   resources :parks
 
