@@ -29,29 +29,19 @@ header {
   background-color: lightblue
 }
 
-/*.footer {
-  background-color: lightgreen;
-  height: 40px;
-  text-align: right;
-  padding-right: 20px;
-  padding-top: 10px;
-  margin: 8px;
-  border-radius: 15px;
-}*/
-
 .container-footer {
   background-color: lightgreen;
   height: 40px;
   text-align: right;
   padding-right: 20px;
   padding-top: 10px;
-  margin: 8px;
+  margin: 12px;
   border-radius: 15px;
 }
 
-.footer > a {
+.container-footer > footer > a {
   color: white;
-
+  padding: 15px;
 }
 
  .HolyGrail {
@@ -63,53 +53,70 @@ header {
 .HolyGrail-body {
   display: flex;
   flex: 1;
-  text-align: center;
+  flex-direction: column;
 }
 
 .HolyGrail-content {
   background-color: beige;
-  text-align: center;
-  margin: 0px 15px;
-  border-radius: 15px;
   flex: 1;
+  margin: 0px 15px;
+  padding-bottom: 15px;
+  border-radius: 5px;
   text-align: center;
-
 }
 
 .HolyGrail-nav {
   /* put the nav on the left */
   order: -1;
   background-color: #FF6A6A;
-  margin: 0px 0 0px 10px;
+  margin: 0px 15px 15px 15px;
   border-radius: 15px;
+   /* 12em is the width of the columns */
+  flex: 0 0 6em;
 }
 
 .HolyGrail-ads {
   background-color: violet;
-  margin: 0px 10px 0px 0px;
-  border-radius: 15px;
+  margin: 15px 15px 0px 15px;
+  border-radius: 10px;
+   /* 6em is the width of the columns */
+  flex: 0 0 12em;
 }
 
 .HolyGrail-nav, .HolyGrail-ads {
-    /* 12em is the width of the columns */
-    flex: 0 0 12em;
-  }
+  padding: 8px 0px 8px 8px;
+}
+
+/*Parks Search Page*/
+.yelp-results {
+  flex-wrap: wrap;
+}
+
+.yelp-photo {
+ text-align: center;
+}
+
+.yelp-photo > img {
+  border-radius: 50px;
+}
 
 @media (min-width: 768px) {
   .HolyGrail-body {
     flex-direction: row;
   }
+  .HolyGrail-content {
+    
+  }
+  .HolyGrail-nav, .HolyGrail-ads {
+    /* 12em is the width of the columns */
+    flex: 0 0 12em;
+    text-align: center;
+  }
+  .HolyGrail-nav {
+    margin: 0px 0 0px 10px;
+  }
+  .HolyGrail-ads {
+    margin: 0px 10px 0px 0px;
+  }
 }
-
-/*parks#search*/
-.yelp-results {
-  flex-wrap: wrap;
-  text-align: left;
-  align-items: baseline;
-}
-
-.yelp-photo {
-  text-align: right;
-}
-
 
