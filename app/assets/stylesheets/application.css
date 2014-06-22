@@ -23,6 +23,10 @@ header {
   background-color:  #838B8B;
 }
 
+.navbar, navbar-collapse > ul > li > a {
+  font-size: 18px;
+}
+
 .navbar, navbar-custom {
   margin: 12px;
   border-radius: 15px;
@@ -44,8 +48,9 @@ header {
 }
 
 .container-footer > footer > a {
-  color: white;
+  color: grey;
   padding: 15px;
+  font-size: 15px;
 }
 
  .HolyGrail {
@@ -61,8 +66,8 @@ header {
 }
 
 .HolyGrail-content {
-  background-color: beige;
   flex: 1;
+  background-color: beige;
   margin: 0px 15px;
   padding-bottom: 15px;
   border-radius: 5px;
@@ -77,11 +82,6 @@ header {
   border-radius: 15px;
    /* 12em is the width of the columns */
   flex: 0 0 4em;
-}
-
-.HolyGrail-sidebar-left > p > a {
-  color: black;
-  font-size: 20px;
 }
 
 .HolyGrail-sidebar-right {
@@ -113,6 +113,12 @@ header {
   border-radius: 50px;
 }
 
+/*landing page*/
+.landing-img > img {
+  width: 350px;
+  padding-top: 30px;
+}
+
 
 @media (min-width: 768px) {
   .HolyGrail-body {
@@ -125,20 +131,23 @@ header {
     /* 12em is the width of the columns */
     flex: 0 0 12em;
     text-align: center;
-  }
+  } 
   .HolyGrail-sidebar-left {
     margin: 0px 0 0px 10px;
   }
   .HolyGrail-sidebar-left ul > li > a {
-  color: purple;
+  color: grey;
   font-size: 20px;
-}
-
+  }
+  .HolyGrail-sidebar-left ul > li > a:hover {
+    background-color: #FF6A6A;
+    font-weight: bold;
+    font-style: italic;
+  }
   .HolyGrail-sidebar-right > img {
   width: 120px;
   margin: 35px 0px 35px 0px;
   }
-
   .HolyGrail-sidebar-right {
     margin: 0px 10px 0px 0px;
   }

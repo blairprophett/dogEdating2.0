@@ -1,4 +1,17 @@
-<h3>LANDING PAGE!</h3>
+<h3>Welcome to <em>dogEdating</em>!</h3>
 
-<%= link_to('Search Dog Parks', '/search') %><br/>
-<%= link_to('Add New Dog', '/dogs/new') %>
+<div class='landing-img'>
+<img src='http://i.imgur.com/Bron7hs.jpg' />
+</div>
+
+<div class='landing-buttons'>
+  <% if !current_user %>
+    <a class='btn' href='/signup'>Sign Up</a>
+    <a class='btn' href='/signin'>Sign In</a>
+  <% end %>
+
+  <% if current_user %>
+    <a class='btn' href='/parks'>All Parks</a>
+    <a class='btn' href='/dogs/new'>Add Your Dog</a><br /><br />
+  <% end %>
+</div>
