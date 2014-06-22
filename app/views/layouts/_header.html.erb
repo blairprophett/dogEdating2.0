@@ -1,34 +1,31 @@
 <!-- top navbar -->
-<nav class="navbar navbar-custom" role="navigation">
-  <div class="container-fluid">
+<div class="navbar navbar-custom" role="navigation">
+  <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">dogEdating 2.0</a>
+      <a class="navbar-brand" href="#">dogEdating 2.0</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="navbar">
+    <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <%# if user_signed_in? %>
-       <!--    <li><%#= link_to 'My Profile',user_path(current_user) %></li>
-          <li><%#= link_to 'Edit Account', edit_user_registration_path %></li> -->
-          <li><%= link_to('Landing', '/') %></li>
-          <li><%= link_to('Dog Parks', '/search') %></li>
-          <li><%= link_to('New Dog', '/dogs/new') %></li>
+        <li class="active">
+        <% if user_signed_in? %>
+      <!--  <li><%#= link_to 'My Profile',user_path(current_user) %></li> -->
+          <li><%= link_to 'Edit Account', edit_user_registration_path %></li>
           <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
-        <%# else %>
-         <!--  <li><%#= link_to 'About Us', '/about' %></li>
-          <li><%#= link_to 'Contact', '/contact' %></li> -->
+        <% else %>
           <li><%= link_to 'Sign In', new_user_session_path %></li>
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-        <%# end %> 
+        <% end %>
+        </li>
       </ul>
 
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
-</nav>
+</div>

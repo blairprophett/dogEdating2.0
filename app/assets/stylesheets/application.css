@@ -29,6 +29,10 @@ header {
   background-color: lightblue
 }
 
+.icon-bar {
+  background-color: grey;
+}
+
 .container-footer {
   background-color: lightgreen;
   height: 40px;
@@ -65,17 +69,22 @@ header {
   text-align: center;
 }
 
-.HolyGrail-nav {
+.HolyGrail-sidebar-left {
   /* put the nav on the left */
   order: -1;
   background-color: #FF6A6A;
   margin: 0px 15px 15px 15px;
   border-radius: 15px;
    /* 12em is the width of the columns */
-  flex: 0 0 6em;
+  flex: 0 0 4em;
 }
 
-.HolyGrail-ads {
+.HolyGrail-sidebar-left > p > a {
+  color: black;
+  font-size: 20px;
+}
+
+.HolyGrail-sidebar-right {
   background-color: violet;
   margin: 15px 15px 0px 15px;
   border-radius: 10px;
@@ -83,7 +92,11 @@ header {
   flex: 0 0 12em;
 }
 
-.HolyGrail-nav, .HolyGrail-ads {
+.HolyGrail-sidebar-right > img {
+  width: 120px;
+}
+
+.HolyGrail-sidebar-right, .HolyGrail-sidebar-left {
   padding: 8px 0px 8px 8px;
 }
 
@@ -100,6 +113,7 @@ header {
   border-radius: 50px;
 }
 
+
 @media (min-width: 768px) {
   .HolyGrail-body {
     flex-direction: row;
@@ -107,15 +121,25 @@ header {
   .HolyGrail-content {
     
   }
-  .HolyGrail-nav, .HolyGrail-ads {
+  .HolyGrail-sidebar-left, .HolyGrail-sidebar-right {
     /* 12em is the width of the columns */
     flex: 0 0 12em;
     text-align: center;
   }
-  .HolyGrail-nav {
+  .HolyGrail-sidebar-left {
     margin: 0px 0 0px 10px;
   }
-  .HolyGrail-ads {
+  .HolyGrail-sidebar-left ul > li > a {
+  color: purple;
+  font-size: 20px;
+}
+
+  .HolyGrail-sidebar-right > img {
+  width: 120px;
+  margin: 35px 0px 35px 0px;
+  }
+
+  .HolyGrail-sidebar-right {
     margin: 0px 10px 0px 0px;
   }
 }
