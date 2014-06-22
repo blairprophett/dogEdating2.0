@@ -6,17 +6,17 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
-
-<%= render 'layouts/devise' %>
-<%= render 'layouts/header' %>
-
-<div class="container body">
-<%= yield %>
-</div> 
-
-<%= render 'layouts/footer' %>
-
+<body class="HolyGrail">
+  <%= render 'layouts/devise' %>
+  <header><%= render 'layouts/header' %></header>
+  <div class="HolyGrail-body">
+    <main class="HolyGrail-content"><%= yield %></main>
+    <nav class="HolyGrail-nav"><%#= render 'layouts/nav' %></nav>
+    <aside class="HolyGrail-ads"><%#= render 'layouts/ads' %></aside>
+  </div>
+  <div class="container-footer">
+    <footer><%= render 'layouts/footer' %></footer>
+  </div>
 </body>
 </html>
