@@ -1,13 +1,15 @@
 class ParksController < ApplicationController
 
-  def search
+  def index
     yelp_params = {
            limit: 3,
            category_filter: 'dog_parks'
           }
 
-    # Geocoder.search(params[:location])
-    # binding.pry
+    address = Geocoder.search(params[:address])
+
+
+    puts address.inspect
 
     coordinates = { latitude: 37.7577, longitude: -122.4376 }
     # coordinates = {latitude: params[:latitude], longitude: params[:longitude] }
@@ -17,24 +19,21 @@ class ParksController < ApplicationController
     @results = JSON.parse(@request)
 
     @yelp_info = @results['businesses']
+
+  end
+
+  def search
+     @results = Park.near(params[:location])
   end
      
-   
-
   # def index
-  #   g = Geocoder.search(params[:search])
+  #   g = Geocoder.search(params[:location])
   #   g[0].data["geometry"]["location"].each_value do |x| 
   #     return x
   #   end
-
-    # if params[:search].present?
-    #   @parks = Park.near(params[:search], 50, :order => :distance)
-    # else
-    #   @parks = Park.all
-    # end
   # end
 
-    # binding.pry
+  # end
 
     # @yelp_info.each do |business|
     #    @name = business['name']
@@ -46,10 +45,6 @@ class ParksController < ApplicationController
     #   @yelp_url = business['url']
    # end
   # end
-  
- def index
-    @parks = Park.all
-  end
 
   def new
     @park = Park.new
