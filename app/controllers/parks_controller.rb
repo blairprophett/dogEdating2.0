@@ -41,7 +41,7 @@ class ParksController < ApplicationController
 
   def show
     @park = Park.find(params[:id])
-    @dogs = @park.dogs
+    # @dogs = @park.dogs
   end
 
   def edit
@@ -57,13 +57,13 @@ class ParksController < ApplicationController
       end
     end
 
-  def search
-    @parks = Park.all
-    @search = SimpleSearch.new SimpleSearch.get_params(params)
-    if @search.valid?
-      @parks = @search.search_within Park.all, :name
-    end
-  end
+  # def search
+  #   @parks = Park.all
+  #   @search = SimpleSearch.new SimpleSearch.get_params(params)
+  #   if @search.valid?
+  #     @parks = @search.search_within Park.all, :name
+  #   end
+  # end
 
   private
     def park_params
