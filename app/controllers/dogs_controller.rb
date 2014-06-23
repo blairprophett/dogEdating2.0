@@ -1,5 +1,12 @@
 class DogsController < ApplicationController
 
+  #make admin only
+  def index
+    @dogs = Dog.all
+    #@uploader.success_action_redirect = @dogs
+  end
+
+
   def new
     @dog = Dog.new
   end
@@ -9,8 +16,37 @@ class DogsController < ApplicationController
     redirect_to(dog)
   end
 
+  def edit
+    if @dog.nil?
+      flash[:alert] = "Oops! You don't have permissions for that."
+      redirect_to dog_path(params[:id])
+    else
+      @dog = current_user.dog.find(params[:id])
+      @dog = Dog.find(params[:id])
+    end
+  end
+
+  ef update
+    @dog = Dog.find(params[:id])
+      if @dog.update_attributes(dog_params)
+        redirect_to(@dog)
+      else
+        render :edit
+      end
+  end
+
+  def destroy
+    Dog.find(params[:id]).destroy
+    redirect_to parks_path
+  end
+
   def show
     @dog = Dog.find_by_id(params[:id])
+    
+    if @dog.nil?
+      flash[:alert] = "Oops! That resource is not available."
+      redirect_to '/dogs/new'
+    end
   end
 
 
