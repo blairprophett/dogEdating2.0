@@ -5,14 +5,20 @@
   <%#= submit_tag("Search") %>
 <%# end %>
 
+  <%= form_tag parks_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :city, params[:city] %>
+    <%= submit_tag "Search Near", :name => nil %>
 
+  </p>
+<% end %>
 
-<div class= search-form>
+<!-- <div class= search-form>
   <form method="get" action="/">
     <input type="text" name="term" placeholder="Search Dog Parks">
     <input type="submit">
   </form>
-</div><br/>
+</div><br/> -->
 
 
   <div class='search'>

@@ -14,6 +14,22 @@ class ParksController < ApplicationController
     @results = JSON.parse(@request)
 
     @yelp_info = @results['businesses']
+  end
+     
+   
+
+  def index
+    g = Geocoder.search(params[:search])
+    g[0].data["geometry"]["location"].each_value do |x| 
+      return x
+    end
+
+    # if params[:search].present?
+    #   @parks = Park.near(params[:search], 50, :order => :distance)
+    # else
+    #   @parks = Park.all
+    # end
+  end
 
     # @yelp_info.each do |business|
     #    @name = business['name']
@@ -24,7 +40,7 @@ class ParksController < ApplicationController
     #   @zip = business['location']['display_address'][2]
     #   @yelp_url = business['url']
    # end
-  end
+
 
 
 end
