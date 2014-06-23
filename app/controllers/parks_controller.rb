@@ -2,49 +2,30 @@ class ParksController < ApplicationController
 
   def index
     yelp_params = {
-           limit: 3,
-           category_filter: 'dog_parks'
+           limit: 15,
+           term: 'dog park'
+           # category_filter: 'dog_parks'
           }
 
     address = Geocoder.search(params[:address])
 
+    @latitude = address.first.data["point"]["coordinates"].first#[0].data['point']['coordinates'][0]
+    @longitude = address.first.data["point"]["coordinates"].last#[0].data['point']['coordinates'][1]
 
-    puts address.inspect
+    # @coordinates = { latitude: 37.7577, longitude: -122.4376 }
+    @coordinates = { latitude: @latitude, longitude: @longitude }
 
-    coordinates = { latitude: 37.7577, longitude: -122.4376 }
-    # coordinates = {latitude: params[:latitude], longitude: params[:longitude] }
-    # binding.pry
-    @request = Yelp.client.search_by_coordinates(coordinates, yelp_params).to_json
-   
+    @request = Yelp.client.search_by_coordinates(@coordinates, yelp_params).to_json
+    
     @results = JSON.parse(@request)
 
     @yelp_info = @results['businesses']
-
+    # binding.pry
   end
 
   def search
      @results = Park.near(params[:location])
   end
-     
-  # def index
-  #   g = Geocoder.search(params[:location])
-  #   g[0].data["geometry"]["location"].each_value do |x| 
-  #     return x
-  #   end
-  # end
-
-  # end
-
-    # @yelp_info.each do |business|
-    #    @name = business['name']
-       # binding.pry
-    #   @img = business['image_url']
-    #   @neighborhood = business['location']['neighborhoods'][0]
-    #   @address = business['location']['address'][0]
-    #   @zip = business['location']['display_address'][2]
-    #   @yelp_url = business['url']
-   # end
-  # end
 
   def new
     @park = Park.new
