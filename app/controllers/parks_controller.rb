@@ -32,7 +32,7 @@ class ParksController < ApplicationController
     # else
     #   @parks = Park.all
     # end
-  end
+  # end
 
     # binding.pry
 
@@ -45,10 +45,7 @@ class ParksController < ApplicationController
     #   @zip = business['location']['display_address'][2]
     #   @yelp_url = business['url']
    # end
-<<<<<<< HEAD
-
-=======
-  end
+  # end
   
  def index
     @parks = Park.all
@@ -93,7 +90,5 @@ class ParksController < ApplicationController
     def park_params
       params.require(:park).permit(:name, :address, :leash_rule, :image)
     end
->>>>>>> 513a5af587f677dfa084dc85a3ebe2d051450ed4
-
 
 end
