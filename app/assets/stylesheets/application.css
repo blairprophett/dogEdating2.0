@@ -16,11 +16,11 @@
  */
 
 body {
-  background-color: #838B8B;
+  background-color: #8B8378;
 }
 
 header {
-  background-color:  #838B8B;
+  background-color: #8B8378;
 }
 
 .navbar, navbar-collapse > ul > li > a {
@@ -30,7 +30,7 @@ header {
 .navbar, navbar-custom {
   margin: 12px;
   border-radius: 15px;
-  background-color: lightblue
+  background-color: #7AC5CD;
 }
 
 .icon-bar {
@@ -38,7 +38,7 @@ header {
 }
 
 .container-footer {
-  background-color: lightgreen;
+  background-color: #C1CDCD;
   height: 40px;
   text-align: right;
   padding-right: 20px;
@@ -67,10 +67,10 @@ header {
 
 .HolyGrail-content {
   flex: 1;
-  background-color: beige;
+  background-color: #EBECE4;
   margin: 0px 15px;
   padding-bottom: 15px;
-  border-radius: 5px;
+  border-radius: 15px;
   text-align: center;
 }
 
@@ -98,6 +98,7 @@ header {
 
 .HolyGrail-sidebar-right, .HolyGrail-sidebar-left {
   padding: 8px 0px 8px 8px;
+  background-image: url('wavegrid.png')
 }
 
 /*Parks Search Page*/
@@ -116,6 +117,10 @@ header {
 /*landing page*/
 .landing-img > img {
   width: 350px;
+  padding-top: 30px;
+}
+
+.landing-buttons {
   padding-top: 30px;
 }
 

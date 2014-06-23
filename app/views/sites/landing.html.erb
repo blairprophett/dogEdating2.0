@@ -6,12 +6,14 @@
 
 <div class='landing-buttons'>
   <% if !current_user %>
-    <a class='btn' href='/signup'>Sign Up</a>
-    <a class='btn' href='/signin'>Sign In</a>
+    <%= link_to 'Sign Up', new_user_session_path, class: 'btn btn-primary' %>
+    <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary' %>
   <% end %>
 
   <% if current_user %>
-    <a class='btn' href='/parks'>All Parks</a>
-    <a class='btn' href='/dogs/new'>Add Your Dog</a><br /><br />
+    <%= link_to 'All Parks', '/parks', class: 'btn btn-primary' %>
+    <%= link_to 'Add Your Dog', '/dogs/new', class: 'btn btn-primary' %><br /><br />
   <% end %>
 </div>
+
+

@@ -1,20 +1,23 @@
 class ParksController < ApplicationController
 
   def search
-    params = {
+    yelp_params = {
            limit: 3,
-           category_filter: 'dog_parks',
-           #term: params[:term],
-         }
+           category_filter: 'dog_parks'
+          }
+
+    # Geocoder.search(params[:location])
+    # binding.pry
 
     coordinates = { latitude: 37.7577, longitude: -122.4376 }
-
-    @request = Yelp.client.search_by_coordinates(coordinates, params).to_json
+    # coordinates = {latitude: params[:latitude], longitude: params[:longitude] }
+    # binding.pry
+    @request = Yelp.client.search_by_coordinates(coordinates, yelp_params).to_json
    
     @results = JSON.parse(@request)
 
     @yelp_info = @results['businesses']
-
+    # binding.pry
     # @yelp_info.each do |business|
     #    @name = business['name']
        # binding.pry
