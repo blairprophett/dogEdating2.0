@@ -1,28 +1,8 @@
-<h2>Find Dog Parks</h2>
-
-<%#= form_tag(method: 'get') do %>
-  <%#= text_field_tag(term: params[:term], placeholder: "Search Parks") %>
-  <%#= submit_tag("Search") %>
-<%# end %>
+<h2>Find Dog Parks By City</h2>
 
 <div class= search-form>
-  <form method="get" action="/">
-    <input type="text" name="location" placeholder="Search Dog Parks">
+  <form method="get" action="/parks">
+    <input type="text" name="address" placeholder="Search CITY, STATE">
     <input type="submit">
   </form>
 </div><br/>
-
-  Search Term: <%= params[:location] %>
-
-  <div class='search'>
-    <% @yelp_info.each do |business| %> <br/>
-      <div class='yelp-results'>
-      <strong><%= business['name'] %></strong><br/>
-      <strong>Neighborhood:</strong> <%= business['location']['neighborhoods'][0] %><br/>
-      <%= business['location']['address'][0] %><br/>
-      <%= business['location']['display_address'][2] %><br/>
-      <a href="<%= business['url'] %>">View on Yelp</a><br/> 
-      <div class="yelp-photo"><img src="<%= business['image_url'] %>" /></div>
-      </div>
-    <% end  %>
-  </div>

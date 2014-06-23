@@ -16,21 +16,26 @@
  */
 
 body {
-  background-color: #8B8378;
+  background-color: #CDC0B0;
 }
 
 header {
-  background-color: #8B8378;
+  background-color: #CDC0B0;
 }
 
-.navbar, navbar-collapse > ul > li > a {
+.container ul > li > a {
   font-size: 18px;
+  color: black;
+}
+
+.navbar-brand {
+  color: green;
 }
 
 .navbar, navbar-custom {
   margin: 12px;
   border-radius: 15px;
-  background-color: #7AC5CD;
+  background-color: #838B8B;
 }
 
 .icon-bar {
@@ -67,7 +72,7 @@ header {
 
 .HolyGrail-content {
   flex: 1;
-  background-color: #EBECE4;
+  background-color: #E0EEEE;
   margin: 0px 15px;
   padding-bottom: 15px;
   border-radius: 15px;
@@ -75,30 +80,28 @@ header {
 }
 
 .HolyGrail-sidebar-left {
-  /* put the nav on the left */
   order: -1;
-  background-color: #FF6A6A;
   margin: 0px 15px 15px 15px;
   border-radius: 15px;
-   /* 12em is the width of the columns */
-  flex: 0 0 4em;
+  flex: 0 0 5em;
+  background-image: url('wavegrid.png');
+}
+
+.HolyGrail-sidebar-left > .navbar {
+  margin: 12px;
+  border-radius: 15px;
+  background-image: url('wavegrid.png');
 }
 
 .HolyGrail-sidebar-right {
-  background-color: violet;
+  background-image: url('wavegrid.png');
   margin: 15px 15px 0px 15px;
   border-radius: 10px;
-   /* 6em is the width of the columns */
   flex: 0 0 12em;
 }
 
 .HolyGrail-sidebar-right > img {
   width: 120px;
-}
-
-.HolyGrail-sidebar-right, .HolyGrail-sidebar-left {
-  padding: 8px 0px 8px 8px;
-  background-image: url('wavegrid.png')
 }
 
 /*Parks Search Page*/
@@ -124,35 +127,36 @@ header {
   padding-top: 30px;
 }
 
-
 @media (min-width: 768px) {
   .HolyGrail-body {
     flex-direction: row;
   }
-  .HolyGrail-content {
-    
-  }
+
   .HolyGrail-sidebar-left, .HolyGrail-sidebar-right {
     /* 12em is the width of the columns */
     flex: 0 0 12em;
     text-align: center;
   } 
+
   .HolyGrail-sidebar-left {
     margin: 0px 0 0px 10px;
   }
+
   .HolyGrail-sidebar-left ul > li > a {
-  color: grey;
-  font-size: 20px;
+    color: grey;
+    font-size: 20px;
   }
+
   .HolyGrail-sidebar-left ul > li > a:hover {
-    background-color: #FF6A6A;
-    font-weight: bold;
+    background-image: url('wavegrid.png');
     font-style: italic;
   }
+
   .HolyGrail-sidebar-right > img {
-  width: 120px;
-  margin: 35px 0px 35px 0px;
+    width: 120px;
+    margin: 35px 0px 35px 0px;
   }
+
   .HolyGrail-sidebar-right {
     margin: 0px 10px 0px 0px;
   }

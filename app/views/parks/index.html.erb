@@ -1,7 +1,19 @@
-<h1>San Francisco Dog Parks</h1>
+<h1>Results</h1>
 
-<a class='btn' href='/dogs/new'>Add Your Dog</a><br /><br />
+Search Term: <strong><%= params[:address].split.map(&:capitalize).join(' ') %></strong><br/>
 
-<% @parks.each do |park| %>
-  <%= link_to(park.name, park) %></br></br>
-<% end %>
+<div class='search'>
+  <% @yelp_info.each do |business| %> <br/>
+    <div class='yelp-results'>
+      <strong><%= business['name'] %></strong><br/>
+      <%= business['id'] %>
+      <%= business['location']['address'][0] %><br/>
+      <%= business['location']['display_address'][1] %><br/>
+      <a href="<%= business['url'] %>">View on Yelp</a><br/> 
+      <div class="yelp-photo"><img src="<%= business['image_url'] %>" /></div>
+    </div>
+    <%= link_to "Add to 'My Parks'", '/parks/new', class: 'btn btn-default' %><br/>
+  <% end  %>
+</div>
+<%#= @coordinates %>
+<%#= @request.inspect %> 

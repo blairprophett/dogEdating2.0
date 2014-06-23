@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'json'
 gem 'typhoeus'
+#geocoder for lat long info
+gem "geocoder"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
