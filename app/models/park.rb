@@ -1,5 +1,6 @@
 class Park < ActiveRecord::Base
-  has_many :dogs
+  has_many :dog_parks
+  has_many :dogs, through: :dog_parks
   
   #geocoder gem- automatically fetch coordinates after validation
   #stored in latitude and longitude attributes

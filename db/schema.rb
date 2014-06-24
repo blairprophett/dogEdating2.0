@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140624010932) do
+ActiveRecord::Schema.define(version: 20140624203344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,18 +22,26 @@ ActiveRecord::Schema.define(version: 20140624010932) do
     t.datetime "updated_at",              null: false
   end
 
+  create_table "dog_parks", force: true do |t|
+    t.integer  "dog_id"
+    t.integer  "park_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "dog_parks", ["dog_id"], name: "index_dog_parks_on_dog_id", using: :btree
+  add_index "dog_parks", ["park_id"], name: "index_dog_parks_on_park_id", using: :btree
+
   create_table "dogs", force: true do |t|
     t.string   "name"
     t.string   "breed"
     t.string   "age"
     t.string   "image"
     t.integer  "user_id"
-    t.integer  "park_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "dogs", ["park_id"], name: "index_dogs_on_park_id", using: :btree
   add_index "dogs", ["user_id"], name: "index_dogs_on_user_id", using: :btree
 
   create_table "notifications", force: true do |t|
