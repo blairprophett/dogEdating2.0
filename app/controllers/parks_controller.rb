@@ -9,18 +9,20 @@ class ParksController < ApplicationController
 
     address = Geocoder.search(params[:address])
 
-    @latitude = address.first.data["point"]["coordinates"].first#[0].data['point']['coordinates'][0]
-    @longitude = address.first.data["point"]["coordinates"].last#[0].data['point']['coordinates'][1]
-
-    # @coordinates = { latitude: 37.7577, longitude: -122.4376 }
-    @coordinates = { latitude: @latitude, longitude: @longitude }
+    if address.first == nil
+      @coordinates = { latitude: 37.7577, longitude: -122.4376 }
+    else
+      @latitude = address.first.data["point"]["coordinates"].first
+      @longitude = address.first.data["point"]["coordinates"].last
+      @coordinates = { latitude: @latitude, longitude: @longitude }
+    end
 
     @request = Yelp.client.search_by_coordinates(@coordinates, yelp_params).to_json
     
     @results = JSON.parse(@request)
 
     @yelp_info = @results['businesses']
-    # binding.pry
+
   end
 
   def search

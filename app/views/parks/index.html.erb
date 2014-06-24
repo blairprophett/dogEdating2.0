@@ -1,6 +1,6 @@
 <h1>Results</h1>
 
-Search Term: <strong><%= params[:address].split.map(&:capitalize).join(' ') %></strong><br/>
+Search Term: <strong><%= params[:address].upcase %></strong><br/>
 
 <%= link_to 'Search Again', '/search', class: 'btn btn-default' %><br/>
 
@@ -8,7 +8,7 @@ Search Term: <strong><%= params[:address].split.map(&:capitalize).join(' ') %></
   <% @yelp_info.each do |business| %> <br/>
     <div class='yelp-results'>
       <strong><%= business['name'] %></strong><br/>
-      <%= business['location']['display_address'][0] %><br/>
+      <%= business['location']['address'][0] %><br/>
       <%= business['location']['display_address'][1] %>
       <%#= business['location']['display_address'][2] %><br/>
       <a href="<%= business['url'] %>">View on Yelp</a><br/> 
