@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  #overrides default devise controllers
   devise_for :users, :controllers => { :registrations => "registrations" }
 
   root 'sites#landing'
