@@ -1,11 +1,12 @@
 class DogsController < ApplicationController
 
+before_filter :current_user, only: [:create, :new, :edit, :update, :destroy]
+
   #make admin only
   def index
     @dogs = Dog.all
     #@uploader.success_action_redirect = @dogs
   end
-
 
   def new
     @dog = Dog.new
@@ -26,7 +27,7 @@ class DogsController < ApplicationController
     end
   end
 
-  ef update
+  def update
     @dog = Dog.find(params[:id])
       if @dog.update_attributes(dog_params)
         redirect_to(@dog)

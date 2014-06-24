@@ -33,7 +33,7 @@ class ParksController < ApplicationController
 
   def create
     @park = Park.create park_params
-    redirect_to(park)
+    redirect_to(parks_path)
   end
 
   def show
@@ -54,17 +54,9 @@ class ParksController < ApplicationController
       end
     end
 
-  # def search
-  #   @parks = Park.all
-  #   @search = SimpleSearch.new SimpleSearch.get_params(params)
-  #   if @search.valid?
-  #     @parks = @search.search_within Park.all, :name
-  #   end
-  # end
-
   private
     def park_params
-      params.require(:park).permit(:name, :address, :leash_rule, :image)
+      params.require(:park).permit(:yelp_id, :name, :street_address, :city_state_zip, :img_url)
     end
 
 end
