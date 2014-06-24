@@ -7,64 +7,60 @@ Rails.application.routes.draw do
   get '/contact', to: 'sites#contact'
   get '/about', to: 'sites#about'
 
-  resources :dogs
+  resources :dogs do 
+    resources :favorites do
+      post :add_from_yelp, on: :collection
+    end
+  end
+
   resources :parks
 
   get '/search', to: 'parks#search'
-
-  
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
 end
+
+
+#                      Prefix Verb   URI Pattern                                     Controller#Action
+#            new_user_session GET    /users/sign_in(.:format)                        devise/sessions#new
+#                user_session POST   /users/sign_in(.:format)                        devise/sessions#create
+#        destroy_user_session DELETE /users/sign_out(.:format)                       devise/sessions#destroy
+#               user_password POST   /users/password(.:format)                       devise/passwords#create
+#           new_user_password GET    /users/password/new(.:format)                   devise/passwords#new
+#          edit_user_password GET    /users/password/edit(.:format)                  devise/passwords#edit
+#                             PATCH  /users/password(.:format)                       devise/passwords#update
+#                             PUT    /users/password(.:format)                       devise/passwords#update
+#    cancel_user_registration GET    /users/cancel(.:format)                         registrations#cancel
+#           user_registration POST   /users(.:format)                                registrations#create
+#       new_user_registration GET    /users/sign_up(.:format)                        registrations#new
+#      edit_user_registration GET    /users/edit(.:format)                           registrations#edit
+#                             PATCH  /users(.:format)                                registrations#update
+#                             PUT    /users(.:format)                                registrations#update
+#                             DELETE /users(.:format)                                registrations#destroy
+#                        root GET    /                                               sites#landing
+#                     contact GET    /contact(.:format)                              sites#contact
+#                       about GET    /about(.:format)                                sites#about
+# add_from_yelp_dog_favorites POST   /dogs/:dog_id/favorites/add_from_yelp(.:format) favorites#add_from_yelp
+#               dog_favorites GET    /dogs/:dog_id/favorites(.:format)               favorites#index
+#                             POST   /dogs/:dog_id/favorites(.:format)               favorites#create
+#            new_dog_favorite GET    /dogs/:dog_id/favorites/new(.:format)           favorites#new
+#           edit_dog_favorite GET    /dogs/:dog_id/favorites/:id/edit(.:format)      favorites#edit
+#                dog_favorite GET    /dogs/:dog_id/favorites/:id(.:format)           favorites#show
+#                             PATCH  /dogs/:dog_id/favorites/:id(.:format)           favorites#update
+#                             PUT    /dogs/:dog_id/favorites/:id(.:format)           favorites#update
+#                             DELETE /dogs/:dog_id/favorites/:id(.:format)           favorites#destroy
+#                        dogs GET    /dogs(.:format)                                 dogs#index
+#                             POST   /dogs(.:format)                                 dogs#create
+#                     new_dog GET    /dogs/new(.:format)                             dogs#new
+#                    edit_dog GET    /dogs/:id/edit(.:format)                        dogs#edit
+#                         dog GET    /dogs/:id(.:format)                             dogs#show
+#                             PATCH  /dogs/:id(.:format)                             dogs#update
+#                             PUT    /dogs/:id(.:format)                             dogs#update
+#                             DELETE /dogs/:id(.:format)                             dogs#destroy
+#                       parks GET    /parks(.:format)                                parks#index
+#                             POST   /parks(.:format)                                parks#create
+#                    new_park GET    /parks/new(.:format)                            parks#new
+#                   edit_park GET    /parks/:id/edit(.:format)                       parks#edit
+#                        park GET    /parks/:id(.:format)                            parks#show
+#                             PATCH  /parks/:id(.:format)                            parks#update
+#                             PUT    /parks/:id(.:format)                            parks#update
+#                             DELETE /parks/:id(.:format)                            parks#destroy
+#                      search GET    /search(.:format)                               parks#search

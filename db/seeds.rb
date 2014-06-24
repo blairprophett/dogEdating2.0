@@ -6,10 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Dog.create(name: 'Riva', breed: 'Golden Retriever', age: '2', user_id: 1, park_id: 1)
-Dog.create(name: 'Lucy', breed: 'mix', age: '3', user_id: 2, park_id: 2)
-Dog.create(name: 'Riley', breed: 'mix', age: '5', user_id: 3, park_id: 3)
-Dog.create(name: 'Mays', breed: 'goldendoodle', age: '1', user_id: 4, park_id: 4)
+Dog.create(name: 'Riva', breed: 'Golden Retriever', age: '2', user_id: 1)
+Dog.create(name: 'Lucy', breed: 'mix', age: '3', user_id: 2)
+Dog.create(name: 'Riley', breed: 'mix', age: '5', user_id: 3)
+Dog.create(name: 'Mays', breed: 'goldendoodle', age: '1', user_id: 4)
 
 Park.create(name: 'McLaren Park', street_address: 'Shelly Dr. & Mansell St.', yelp_id: 'john-mclaren-park-san-francisco')
 Park.create(name: 'Crissy Field', street_address: 'Mason Street', yelp_id: 'crissy-field-san-francisco')

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140624203344) do
+ActiveRecord::Schema.define(version: 20140624234449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,16 +21,6 @@ ActiveRecord::Schema.define(version: 20140624203344) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
-
-  create_table "dog_parks", force: true do |t|
-    t.integer  "dog_id"
-    t.integer  "park_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "dog_parks", ["dog_id"], name: "index_dog_parks_on_dog_id", using: :btree
-  add_index "dog_parks", ["park_id"], name: "index_dog_parks_on_park_id", using: :btree
 
   create_table "dogs", force: true do |t|
     t.string   "name"
@@ -43,6 +33,16 @@ ActiveRecord::Schema.define(version: 20140624203344) do
   end
 
   add_index "dogs", ["user_id"], name: "index_dogs_on_user_id", using: :btree
+
+  create_table "favorites", force: true do |t|
+    t.integer  "dog_id"
+    t.integer  "park_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "favorites", ["dog_id"], name: "index_favorites_on_dog_id", using: :btree
+  add_index "favorites", ["park_id"], name: "index_favorites_on_park_id", using: :btree
 
   create_table "notifications", force: true do |t|
     t.string   "type"
@@ -66,14 +66,11 @@ ActiveRecord::Schema.define(version: 20140624203344) do
 
   create_table "parks", force: true do |t|
     t.string   "name"
-    t.string   "neighborhood"
     t.string   "street_address"
     t.text     "city_state_zip"
     t.text     "img_url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.float    "latitude"
-    t.float    "longitude"
     t.text     "address"
     t.string   "yelp_id"
   end
