@@ -2,18 +2,25 @@
 
 Search Term: <strong><%= params[:address].split.map(&:capitalize).join(' ') %></strong><br/>
 
+<%= link_to 'Search Again', '/search', class: 'btn btn-default' %><br/>
+
 <div class='search'>
   <% @yelp_info.each do |business| %> <br/>
     <div class='yelp-results'>
       <strong><%= business['name'] %></strong><br/>
-      <%= business['id'] %>
-      <%= business['location']['address'][0] %><br/>
-      <%= business['location']['display_address'][1] %><br/>
+      <%= business['location']['display_address'][0] %><br/>
+      <%= business['location']['display_address'][1] %>
+      <%#= business['location']['display_address'][2] %><br/>
       <a href="<%= business['url'] %>">View on Yelp</a><br/> 
       <div class="yelp-photo"><img src="<%= business['image_url'] %>" /></div>
-    </div>
-    <%= link_to "Add to 'My Parks'", '/parks/new', class: 'btn btn-default' %><br/>
+    <%= form_for :park, method: :post, url: parks_path do |f| %>
+      <%= f.hidden_field :name, value: business['name'] %>
+      <%= f.hidden_field :yelp_id, value: business['id'] %>
+      <%= f.hidden_field :street_address, value: business['location']['display_address'][0] %>
+      <%= f.hidden_field :city_state_zip, value: business['location']['display_address'][1] %>
+      <%= f.hidden_field :img_url, value: business['url'] %>
+      <%= f.submit "Add to 'My Parks'", class: 'btn btn-default' %>
+    <% end %>
   <% end  %>
+  </div>
 </div>
-<%#= @coordinates %>
-<%#= @request.inspect %> 
