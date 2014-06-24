@@ -34,7 +34,7 @@ class ParksController < ApplicationController
   end
 
   def create
-    @park = Park.create park_params
+    @park = Park.find_or_create_by(yelp_id: params['park']['yelp_id'])
     redirect_to(parks_path)
   end
 

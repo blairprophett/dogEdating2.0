@@ -13,7 +13,9 @@ before_filter :current_user, only: [:create, :new, :edit, :update, :destroy]
   end
 
   def create
-    dog = Dog.create dog_params
+    dog = Dog.new dog_params 
+    dog.user_id = current_user.id
+    dog.save
     redirect_to(dog)
   end
 
