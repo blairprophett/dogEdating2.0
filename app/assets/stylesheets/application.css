@@ -28,6 +28,12 @@ header {
   color: black;
 }
 
+.container ul > li > a:hover {
+  background-color: #838B8B;
+  color: #CDC0B0;
+  font-style: italic;
+}
+
 .navbar-brand {
   color: green;
 }
@@ -149,6 +155,7 @@ header {
 
   .HolyGrail-sidebar-left ul > li > a:hover {
     background-image: url('wavegrid.png');
+    color: #C1CDCD;
     font-style: italic;
   }
 
