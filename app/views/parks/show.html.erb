@@ -1,12 +1,15 @@
 <h1><%= @park.name %></h1>
   
- <!--  <div class="park">
-    <p> <%#= image_tag @park.image.url %> </p>
-  </div> -->
+  <img src="<%= @park.img_url %>" />
 
   <p><strong>Address: </strong><%= @park.street_address %></p><br/>
 
-  <a class='btn' href='/dogs/new'>Add Your Dog</a><br/><br/>
+  <%= form_for :favorite, method: :post, url: parks_path do |f| %>
+    <%= f.hidden_field :dog_id, value: :dog_id %>
+    <%= f.hidden_field :park_id, value: :park_id %>
+    <%= f.submit "Add to Favorites", class: 'btn btn-default' %>
+  <% end %>
+
 
 <!-- <h3>Dogs who roam here</h>-->
 <!--shows all dogs with this park_id as their home park

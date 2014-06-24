@@ -34,9 +34,14 @@ class ParksController < ApplicationController
   end
 
   def create
-    @park = Park.find_or_create_by(yelp_id: params['park']['yelp_id'])
-    redirect_to(parks_path)
+    @park = Park.ensure_from_yelp_data(park_params)
+    redirect_to(park_path @park)
   end
+
+  def show_from_yelp
+    @park = Park.ensure_from_yelp_data(park_params)
+    render :show
+  end  
 
   def show
     @park = Park.find(params[:id])

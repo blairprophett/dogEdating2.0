@@ -55,6 +55,6 @@ before_filter :current_user, only: [:create, :new, :edit, :update, :destroy]
 
   private
     def dog_params
-      params.require(:dog).permit(:name, :breed, :age, :image, :park_id)
+      params.require(:dog).permit(:name, :breed, :age, :image)
     end
 end

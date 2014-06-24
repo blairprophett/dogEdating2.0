@@ -13,13 +13,24 @@ Search Term: <strong><%= params[:address] %></strong><br/>
       <%#= business['location']['display_address'][2] %><br/>
       <a href="<%= business['url'] %>">View on Yelp</a><br/> 
       <div class="yelp-photo"><img src="<%= business['image_url'] %>" /></div>
+
     <%= form_for :park, method: :post, url: parks_path do |f| %>
       <%= f.hidden_field :name, value: business['name'] %>
       <%= f.hidden_field :yelp_id, value: business['id'] %>
       <%= f.hidden_field :street_address, value: business['location']['display_address'][0] %>
       <%= f.hidden_field :city_state_zip, value: business['location']['display_address'][1] %>
       <%= f.hidden_field :img_url, value: business['url'] %>
-      <%= f.submit "Add to 'My Parks'", url: 'park/:id', class: 'btn btn-default' %>
+      <%= f.submit "View Park", class: 'btn btn-default' %>
+    <% end %>
+
+    <%= form_for :favorite, method: :post, url: parks_path do |f| %>
+      <%= f.hidden_field :name, value: business['name'] %>
+      <%= f.hidden_field :yelp_id, value: business['id'] %>
+      <%= f.hidden_field :street_address, value: business['location']['display_address'][0] %>
+      <%= f.hidden_field :city_state_zip, value: business['location']['display_address'][1] %>
+      <%= f.hidden_field :dog_id, value: :dog_id %>
+      <%= f.hidden_field :park_id, value: :park_id %>
+      <%= f.submit "Add to Favorites", class: 'btn btn-default' %>
     <% end %>
   <% end  %>
   </div>
