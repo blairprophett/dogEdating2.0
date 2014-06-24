@@ -1,6 +1,6 @@
 class Dog < ActiveRecord::Base
   belongs_to :user
-  belongs_to :park
+  has_many :parks
 
   #for CarrierWave image uploader
   mount_uploader :image, ImageUploader

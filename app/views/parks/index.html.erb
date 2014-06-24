@@ -1,6 +1,6 @@
 <h1>Results</h1>
 
-Search Term: <strong><%= params[:address].upcase %></strong><br/>
+Search Term: <strong><%= params[:address] %></strong><br/>
 
 <%= link_to 'Search Again', '/search', class: 'btn btn-default' %><br/>
 
@@ -19,7 +19,7 @@ Search Term: <strong><%= params[:address].upcase %></strong><br/>
       <%= f.hidden_field :street_address, value: business['location']['display_address'][0] %>
       <%= f.hidden_field :city_state_zip, value: business['location']['display_address'][1] %>
       <%= f.hidden_field :img_url, value: business['url'] %>
-      <%= f.submit "Add to 'My Parks'", class: 'btn btn-default' %>
+      <%= f.submit "Add to 'My Parks'", url: 'park/:id', class: 'btn btn-default' %>
     <% end %>
   <% end  %>
   </div>
