@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   post '/messages', to: 'conversations#send_msg'
   get '/messages', to: 'conversations#new_msg'
+  get '/messages/inbox', to: 'conversations#inbox'
 
   resources :dogs do 
     resources :favorites do

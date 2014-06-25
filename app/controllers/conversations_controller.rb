@@ -17,6 +17,16 @@ class ConversationsController < ApplicationController
       redirect_to '/'
   end
 
+  def show
 
+  end
 
+  def inbox
+    @user = current_user
+    @messages = @user.mailbox.conversations[0].messages[0]
+  end
+
+  # @convos = @user.mailbox.conversations
+  #   @messages = @convos.messages[0]
+  
 end
