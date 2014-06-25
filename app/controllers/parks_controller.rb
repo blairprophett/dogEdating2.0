@@ -42,28 +42,27 @@ class ParksController < ApplicationController
     end
   end
 
-  def show_from_yelp
-    @park = Park.ensure_from_yelp_data(park_params)
-    render :show
-  end  
+  # def show_from_yelp
+  #   @park = Park.ensure_from_yelp_data(park_params)
+
+  #   if @park.nil?
+  #     flash[:alert] = "Oops! That resource is not available."
+  #     redirect_to '/parks'
+  #   else
+  #     render :show
+  #   end
+  # end  
 
   def show
-    @park = Park.find(params[:id])
-    # @dogs = @park.dogs
-  end
-
-  def edit
-    @park = Park.find(params[:id])
-  end
-
-  def update
-    @park = Park.find(params[:id])
-      if @park.update_attributes(park_params)
-        redirect_to(@park)
-      else
-        render :edit
-      end
+    @park = Park.find_by_id(params[:id])
+    
+    if @park.nil?
+      flash[:alert] = "Oops! That resource is not available."
+      redirect_to '/parks'
+    else
+      render :show
     end
+  end
 
   private
     def park_params

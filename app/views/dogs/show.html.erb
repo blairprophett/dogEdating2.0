@@ -13,7 +13,9 @@
   <% end %>
 </div><br/><br/>
 
+<% if current_user.dog %>
  <%= link_to 'Delete Dog', dog_path(@dog), :method => 'delete', :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-default' %>
+<% end %>
 
 <%= link_to 'Search Dog Parks', '/search', class: 'btn btn-default' %>
 

@@ -2,12 +2,7 @@ class DogsController < ApplicationController
 #confirms user is signed in
 before_action :authenticate_user!
 
-before_filter :current_user, only: [:create, :new, :edit, :update, :destroy]
-
-  #make admin only
-  def index
-    @dogs = Dog.all
-  end
+before_filter :current_user, only: [:create, :new, :destroy]
 
   def new
     @dog = Dog.new
@@ -19,10 +14,10 @@ before_filter :current_user, only: [:create, :new, :edit, :update, :destroy]
       redirect_to '/'
     end
 
-    def age(dob)
-      now = Time.now.utc.to_date
-      now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
-    end
+    # def age(dob)
+    #   now = Time.now.utc.to_date
+    #   now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
+    # end
   end
 
   def create
@@ -32,28 +27,16 @@ before_filter :current_user, only: [:create, :new, :edit, :update, :destroy]
     redirect_to(dog)
   end
 
-  def edit
+  def destroy
+    Dog.find_by_id(params[:id]).destroy
+
     if @dog.nil?
       flash[:alert] = "Oops! You don't have permissions for that."
       redirect_to dog_path(params[:id])
-    else
-      @dog = current_user.dog.find(params[:id])
-      @dog = Dog.find(params[:id])
+    else 
+      render :destroy
+      redirect_to '/'
     end
-  end
-
-  def update
-    @dog = Dog.find(params[:id])
-      if @dog.update_attributes(dog_params)
-        redirect_to(@dog)
-      else
-        render :edit
-      end
-  end
-
-  def destroy
-    Dog.find(params[:id]).destroy
-    redirect_to parks_path
   end
 
   def show
