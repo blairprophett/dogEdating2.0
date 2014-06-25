@@ -9,6 +9,13 @@ before_filter :current_user, only: [:create, :new, :edit, :update, :destroy]
 
   def new
     @dog = Dog.new
+
+    if current_user.dog.nil?
+      render :new
+    else
+      flash[:alert] = "Sorry! We only allow one dog per account at this time."
+      redirect_to '/'
+    end
   end
 
   def create

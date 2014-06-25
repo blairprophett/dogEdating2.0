@@ -10,11 +10,14 @@
       <div class="collapse navbar-collapse" id="sidebar">
       <ul class="nav navbar-nav pull-right">
         <% if user_signed_in? %>
-          <%#= link_to 'My Profile',user_path(current_user) %>
           <li><%= link_to 'Edit Account', edit_user_registration_path %></li>
           <li><%= link_to('Landing', '/') %></li>
           <li><%= link_to('Search Dog Parks', '/search') %>
-          <li><%= link_to('New Dog', '/dogs/new') %></li>
+            <% if current_user.dog.nil? %>
+              <li><%= link_to('New Dog', '/dogs/new') %></li>
+            <% else %>
+              <li><%= link_to('My Pup', dog_path(current_user.dog)) %></li>
+            <% end %>
         <% else %>
           <li><%= link_to 'About Us', '/about' %></li>
           <li><%= link_to 'Contact', '/contact' %></li>
