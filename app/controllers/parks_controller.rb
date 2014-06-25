@@ -1,4 +1,5 @@
 class ParksController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     yelp_params = {
@@ -32,8 +33,13 @@ class ParksController < ApplicationController
   end
 
   def create
-    @park = Park.ensure_from_yelp_data(park_params)
-    redirect_to(park_path @park)
+    if current_user.dog.nil?
+      flash[:alert] = "Oops! You'll need to add your dog to access that!"
+      redirect_to new_dog_path
+    else
+      @park = Park.ensure_from_yelp_data(park_params)
+      redirect_to(park_path @park)
+    end
   end
 
   def show_from_yelp

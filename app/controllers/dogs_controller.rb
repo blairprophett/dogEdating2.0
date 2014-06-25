@@ -1,4 +1,6 @@
 class DogsController < ApplicationController
+#confirms user is signed in
+before_action :authenticate_user!
 
 before_filter :current_user, only: [:create, :new, :edit, :update, :destroy]
 
@@ -15,6 +17,11 @@ before_filter :current_user, only: [:create, :new, :edit, :update, :destroy]
     else
       flash[:alert] = "Sorry! We only allow one dog per account at this time."
       redirect_to '/'
+    end
+
+    def age(dob)
+      now = Time.now.utc.to_date
+      now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
     end
   end
 

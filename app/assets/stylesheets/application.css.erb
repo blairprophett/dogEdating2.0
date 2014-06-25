@@ -24,7 +24,6 @@ body {
 .btn {
   background-color: #708090;
   border: 3px solid #708090;
-  border-radius: 10px;
   color: white;
 }
 
@@ -62,18 +61,18 @@ header {
 
 .container ul > li > a {
   font-size: 18px;
-  color: black;
+  color: #EEE9E9;
 }
 
 .container ul > li > a:hover {
   background-color: #838B8B;
   color: #CDC0B0;
-  font-style: italic;
 }
 
 .navbar-brand {
-  color: white;
+  color: #C6E2FF;
   font-family: 'Exo 2', sans-serif;
+  font-size: 24px;
 }
 
 .navbar, navbar-custom {
@@ -116,6 +115,16 @@ header {
   margin: 12px;
   border-radius: 15px;
   background-image: url('<%= asset_path('wavegrid.png')%>');
+}
+
+.container-sidebar ul > li > a {
+  color: grey;
+  font-size: 18px;
+}
+
+.container-sidebar ul > li > a:hover {
+  background-image: url('<%= asset_path('wavegrid.png')%>');
+  color: #CDC0B0;
 }
 
 /* _sidebar_left */
@@ -182,12 +191,6 @@ header {
   .HolyGrail-sidebar-left ul > li > a {
     color: grey;
     font-size: 20px;
-  }
-
-  .HolyGrail-sidebar-left ul > li > a:hover {
-    background-image: url('<%= asset_path('wavegrid.png')%>');
-    color: #C1CDCD;
-    font-style: italic;
   }
 
   .HolyGrail-sidebar-right > img {

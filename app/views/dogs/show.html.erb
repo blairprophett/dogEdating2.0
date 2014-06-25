@@ -13,6 +13,8 @@
   <% end %>
 </div><br/><br/>
 
+ <%= link_to 'Delete Dog', dog_path(@dog), :method => 'delete', :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-default' %>
+
 <%= link_to 'Search Dog Parks', '/search', class: 'btn btn-default' %>
 
 
