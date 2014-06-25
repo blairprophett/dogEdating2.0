@@ -13,10 +13,12 @@
   <% end %>
 </div><br/><br/>
 
-<% if current_user.dog %>
- <%= link_to 'Delete Dog', dog_path(@dog), :method => 'delete', :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-default' %>
-<% end %>
+<%= form_for :conversation, method: :get, url: '/messages' do |f| %>
+  <%= f.hidden_field :recipient, value: @dog.user.id %>
+  <%= f.submit "Message Me!", class: 'btn btn-default' %>
+<% end %><br/>
+<% #binding.pry %>
 
-<%= link_to 'Search Dog Parks', '/search', class: 'btn btn-default' %>
+<%= link_to 'Search Dog Parks', '/search', class: 'btn btn-default' %><br/><br/>
 
-
+<%= link_to 'Delete Dog', dog_path(@dog), :method => 'delete', :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-default' %>
