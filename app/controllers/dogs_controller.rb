@@ -54,7 +54,7 @@ before_filter :current_user, only: [:create, :new, :edit, :update, :destroy]
     
     if @dog.nil?
       flash[:alert] = "Oops! That resource is not available."
-      redirect_to '/dogs/new'
+      redirect_to '/'
     end
   end
 
