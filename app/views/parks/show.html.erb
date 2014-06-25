@@ -6,7 +6,6 @@
   <%= @park.zip %>
   <%= @park.state %></p><br/>
 
-
   <%= form_for :favorite, method: :post, url: dog_favorites_path(current_user.dog) do |f| %>
     <%= f.hidden_field :park_id, value: @park.id %>
     <%= f.submit "Add to Favorites", class: 'btn btn-default' %>
