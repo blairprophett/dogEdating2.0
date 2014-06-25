@@ -15,10 +15,34 @@
  *= require_self
  */
 
+/* layout#application */
 body {
   background-color: #CDC0B0;
 }
 
+ .HolyGrail {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.HolyGrail-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.HolyGrail-content {
+  flex: 1;
+  background-color: #E0EEEE;
+  margin: 0px 15px;
+  padding-bottom: 15px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+
+/* _header */
 header {
   background-color: #CDC0B0;
 }
@@ -48,6 +72,7 @@ header {
   background-color: grey;
 }
 
+/* _footer */
 .container-footer {
   background-color: #C1CDCD;
   height: 40px;
@@ -64,27 +89,7 @@ header {
   font-size: 15px;
 }
 
- .HolyGrail {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-.HolyGrail-body {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-}
-
-.HolyGrail-content {
-  flex: 1;
-  background-color: #E0EEEE;
-  margin: 0px 15px;
-  padding-bottom: 15px;
-  border-radius: 15px;
-  text-align: center;
-}
-
+/* _sidebar_left */
 .HolyGrail-sidebar-left {
   order: -1;
   margin: 0px 15px 15px 15px;
@@ -99,6 +104,7 @@ header {
   background-image: url('<%= asset_path('wavegrid.png')%>');
 }
 
+/* _sidebar_left */
 .HolyGrail-sidebar-right {
   background-image: url('<%= asset_path('wavegrid.png')%>');
   margin: 15px 15px 0px 15px;
@@ -110,7 +116,7 @@ header {
   width: 120px;
 }
 
-/*Parks Search Page*/
+/* parks#search */
 .yelp-results {
   flex-wrap: wrap;
 }
@@ -123,7 +129,7 @@ header {
   border-radius: 50px;
 }
 
-/*landing page*/
+/* sites#landing */
 .landing-img > img {
   width: 350px;
   padding-top: 30px;
@@ -133,13 +139,12 @@ header {
   padding-top: 30px;
 }
 
-/*dog show page*/
-
-.dog-show > img {
+/* dog#show */
+.dog-profile-img > img {
   width: 250px;
 }
 
-/* park show page*/
+/* park#show */
 .dog-favorite > img {
   width: 100px;
   border-radius: 20px;
