@@ -10,11 +10,3 @@ class Dog < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
 end
-
-# t.string   "name"
-#     t.string   "breed"
-#     t.string   "age"
-#     t.string   "image"
-#     t.integer  "user_id"
-#     t.datetime "created_at"
-#     t.datetime "updated_at"

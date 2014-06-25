@@ -1,10 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'json'
-gem 'typhoeus'
-#geocoder for lat long info
-gem "geocoder"
-
+# Geocoder for lat long info
+gem 'geocoder'
+# Mailboxer to make models messageable
+gem 'mailboxer'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 # Use postgresql as the database for Active Record
@@ -13,20 +12,16 @@ gem 'pg'
 gem 'sass-rails', '~> 4.0.3'
 # Devise for authorization
 gem 'devise'
-#Gems for image upload
+# Carrierwave for image upload
 gem 'carrierwave'
+# Fog for image storage/connection to AWS S3
 gem "fog", "~> 1.3.1"
-
-#Yelp gem to access yelp search API
+# Yelp gem to access yelp search API
 gem 'yelp', require: 'yelp'
-
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -60,7 +55,6 @@ end
 group :production do
   gem 'rails_12factor'
 end
-
 
 # Use unicorn as the app server
 # gem 'unicorn'

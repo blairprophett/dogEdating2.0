@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get '/contact', to: 'sites#contact'
   get '/about', to: 'sites#about'
 
+  post '/messages', to: 'conversations#send_msg'
+  get '/messages', to: 'conversations#new_msg'
+
   resources :dogs do 
     resources :favorites do
       post :add_from_yelp, on: :collection
