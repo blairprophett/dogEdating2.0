@@ -2,12 +2,11 @@ class FavoritesController < ApplicationController
 
   before_action :load_dog
 
-  def add_from_yelp
-
-  end
-
   def create 
-    @dog.favorites.create(new_favorite_params)
+    # @dog.favorites.create(new_favorite_params)
+    # redirect_to dog_path(@dog)
+
+    @favorite = @dog.favorites.ensure_favorite_from_park_data(new_favorite_params)
     redirect_to dog_path(@dog)
   end
 

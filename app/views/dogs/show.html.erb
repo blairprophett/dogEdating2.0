@@ -3,16 +3,15 @@
 </div>
 
 <div class="dog">
-  <div class="dog-show"><%= image_tag @dog.image.url %><br /></div>
-  <%= @dog.name %><br />
-  <%= @dog.breed %><br />
-  Age: <%= @dog.age %><br />
+  <div class="dog-show"><%= image_tag @dog.image.url %><br/></div>
+  <%= @dog.breed %><br/>
+  Age: <%= @dog.age %><br/><br/>
 
+  <h4><%=@dog.name %>'s Favorite Parks:</h4>
   <% @dog.parks.each do |park| %> <br/>
-    Roams at: <%= link_to park.name, park_path(park) %><br />
-<% end %>
-
-</div>
+    <%= link_to park.name, park_path(park) %><br/>
+  <% end %>
+</div><br/><br/>
 
 <%= link_to 'Search Dog Parks', '/search', class: 'btn btn-default' %>
 

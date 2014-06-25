@@ -16,6 +16,6 @@
 <h3>Dogs who roam here</h3>
 <!--shows all dogs who have favorited this park-->
   <% @park.dogs.each do |dog| %>
-    <p><%= link_to(dog.name, dog_path(dog)) %> </p>
-    <p><%= image_tag dog.image %></p>
+    <%= link_to(dog.name, dog_path(dog)) %>
+    <div class='dog-favorite'><%= image_tag dog.image %></div>
   <% end %>

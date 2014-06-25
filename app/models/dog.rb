@@ -5,4 +5,5 @@ class Dog < ActiveRecord::Base
 
   #for CarrierWave image uploader
   mount_uploader :image, ImageUploader
+
 end
