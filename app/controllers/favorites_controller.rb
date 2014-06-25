@@ -1,12 +1,17 @@
 class FavoritesController < ApplicationController
-
-  before_action :load_dog
+  before_action :authenticate_user!, :load_dog
+  before_filter :current_user, only: [:create, :new, :edit, :update, :destroy]
 
   #ensure method in model
   def create
     @favorite = @dog.favorites.ensure_favorite_from_park_data(new_favorite_params)
     redirect_to dog_path(@dog)
   end
+
+  # def destroy
+  #   Favorite.find(params[:id]).destroy
+  #   redirect_to dog_path(@dog.id)
+  # end
 
   private
 
