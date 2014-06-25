@@ -3,7 +3,7 @@ class Dog < ActiveRecord::Base
   has_many :favorites
   has_many :parks, through: :favorites
 
-  #for CarrierWave image uploader
+  #readys model for CarrierWave image uploader
   mount_uploader :image, ImageUploader
 
 end
