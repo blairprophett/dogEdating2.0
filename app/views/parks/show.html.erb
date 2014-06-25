@@ -1,19 +1,22 @@
 <h1><%= @park.name %></h1>
-  
-  <img src="<%= @park.img_url %>" />
 
-  <p><strong>Address: </strong><%= @park.street_address %></p><br/>
+  <p><strong>Address: </strong>
+  <%= @park.street_address %><br/>
+  <%= @park.city %>
+  <%= @park.zip %>
+  <%= @park.state %></p><br/>
 
-  <%= form_for :favorite, method: :post, url: parks_path do |f| %>
-    <%= f.hidden_field :dog_id, value: :dog_id %>
-    <%= f.hidden_field :park_id, value: :park_id %>
+
+  <%= form_for :favorite, method: :post, url: dog_favorites_path(current_user.dog) do |f| %>
+    <%= f.hidden_field :park_id, value: @park.id %>
     <%= f.submit "Add to Favorites", class: 'btn btn-default' %>
+  <% end %><br/>
+
+<%= link_to 'Search Again', '/search', class: 'btn btn-default' %><br/>
+
+<h3>Dogs who roam here</h3>
+<!--shows all dogs who have favorited this park-->
+  <% @park.dogs.each do |dog| %>
+    <p><%= link_to(dog.name, dog_path(dog)) %> </p>
+    <p><%= image_tag dog.image %></p>
   <% end %>
-
-
-<!-- <h3>Dogs who roam here</h>-->
-<!--shows all dogs with this park_id as their home park
-  <%# @park.dogs.each do |dog| %>
-    <p><%#= link_to(dog.name, dog_path(dog)) %> </p>
-    <p><%#= image_tag dog.image %></p>
-  <%# end %> -->

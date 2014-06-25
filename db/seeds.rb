@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Dog.create(name: 'Riva', breed: 'Golden Retriever', age: '2', user_id: 1)
+Dog.create(name: 'Riva', breed: 'Golden Retriever', image: 'http://i.imgur.com/mIMBpCU.png', age: '2', user_id: 1)
 Dog.create(name: 'Lucy', breed: 'mix', age: '3', user_id: 2)
 Dog.create(name: 'Riley', breed: 'mix', age: '5', user_id: 3)
 Dog.create(name: 'Mays', breed: 'goldendoodle', age: '1', user_id: 4)
@@ -17,3 +17,7 @@ Park.create(name: 'Ocean Beach', street_address: 'Great Highway at Sloat', yelp_
 Park.create(name: 'Corona Heights', street_address: 'Randall Field at Museum Way & Roosevelt Way', yelp_id: 'corona-heights-park-san-francisco')
 Park.create(name: 'Buena Vista Park', street_address: 'Buena Vista West and Central St.', yelp_id: 'buena-vista-park-san-francisco')
 Park.create(name: 'Fort Funston', street_address: 'Skyline & Fort Funston', yelp_id: 'fort-funston-san-francisco-3')
+
+Favorite.create(dog_id: 1, park_id: 1)
+Favorite.create(dog_id: 2, park_id: 1)
+Favorite.create(dog_id: 1, park_id: 3)

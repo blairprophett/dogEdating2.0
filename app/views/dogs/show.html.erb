@@ -7,7 +7,11 @@
   <%= @dog.name %><br />
   <%= @dog.breed %><br />
   Age: <%= @dog.age %><br />
-  <!-- Roams at: <%#= link_to @dog.park.name, park_path(@dog.park) %><br /> -->
+
+  <% @dog.parks.each do |park| %> <br/>
+    Roams at: <%= link_to park.name, park_path(park) %><br />
+<% end %>
+
 </div>
 
 <%= link_to 'Search Dog Parks', '/search', class: 'btn btn-default' %>

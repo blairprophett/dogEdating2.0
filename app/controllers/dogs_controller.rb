@@ -5,7 +5,6 @@ before_filter :current_user, only: [:create, :new, :edit, :update, :destroy]
   #make admin only
   def index
     @dogs = Dog.all
-    #@uploader.success_action_redirect = @dogs
   end
 
   def new

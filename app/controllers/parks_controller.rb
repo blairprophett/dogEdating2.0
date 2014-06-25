@@ -4,7 +4,6 @@ class ParksController < ApplicationController
     yelp_params = {
            limit: 15,
            term: 'dog park'
-           # category_filter: 'dog_parks'
           }
 
     address = Geocoder.search(params[:address])
@@ -22,7 +21,6 @@ class ParksController < ApplicationController
     @results = JSON.parse(@request)
 
     @yelp_info = @results['businesses']
-
   end
 
   def search
@@ -63,7 +61,7 @@ class ParksController < ApplicationController
 
   private
     def park_params
-      params.require(:park).permit(:yelp_id, :name, :street_address, :city_state_zip, :img_url)
+      params.require(:park).permit(:yelp_id, :name, :street_address, :city, :state, :zip, :img_url)
     end
 
 end
