@@ -1,8 +1,8 @@
 <h2>Find Dog Parks By City</h2>
 
 <div class= search-form>
-  <form method="get" action="/parks">
-    <input type="text" name="address" placeholder="Search CITY, STATE">
-    <input type="submit">
-  </form>
-</div><br/>
+  <%= form_for :park, method: :get, url: parks_path do |f| %>
+    <%= f.text_field :address, placeholder: 'Search CITY, STATE' %>
+    <%= f.submit "Search", class: 'btn btn-default' %>
+  <% end %>
+</div>
