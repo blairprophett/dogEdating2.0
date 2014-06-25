@@ -1,6 +1,6 @@
 class FavoritesController < ApplicationController
-  before_action :authenticate_user!, :load_dog
-  before_filter :current_user, only: [:create, :new, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :load_dog
 
   #ensure method in model
   def create
