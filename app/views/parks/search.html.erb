@@ -2,6 +2,7 @@
 
 <div class= 'search-form'>
   <%= form_for :park, method: :get, url: parks_path do |f| %>
+    <%= image_tag('miniMapLogo.png') %>
     <%= f.text_field :address, placeholder: 'Search CITY, STATE' %>
     <%= f.submit "Search", class: 'btn btn-default' %>
   <% end %>
