@@ -13,18 +13,17 @@ before_filter :current_user, only: [:create, :new, :destroy]
       flash[:alert] = "Sorry! We only allow one dog per account at this time."
       redirect_to '/'
     end
-
-    # def age(dob)
-    #   now = Time.now.utc.to_date
-    #   now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
-    # end
   end
 
   def create
     dog = Dog.new dog_params 
     dog.user_id = current_user.id
-    dog.save
-    redirect_to(dog)
+    if dog.save
+      redirect_to(dog)
+    else
+      flash[:alert] = "Opps, You're missing some necessary information. Please try again."
+      redirect_to '/dogs/new'
+    end
   end
 
   def destroy

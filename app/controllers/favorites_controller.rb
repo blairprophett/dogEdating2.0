@@ -8,11 +8,6 @@ class FavoritesController < ApplicationController
     redirect_to dog_path(@dog)
   end
 
-  # def destroy
-  #   Favorite.find(params[:id]).destroy
-  #   redirect_to dog_path(@dog.id)
-  # end
-
   private
 
     def new_favorite_params

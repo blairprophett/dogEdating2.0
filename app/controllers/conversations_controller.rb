@@ -26,13 +26,8 @@ class ConversationsController < ApplicationController
   def inbox
     @user = current_user
     @conversations = @user.mailbox.conversations
-    #@body = @conversations.first.messages[0][:body]
     @inbox = @user.mailbox.inbox
     @sentbox = @user.mailbox.sentbox
-    # binding.pry
   end
-
-  # @convos = @user.mailbox.conversations
-  #   @messages = @convos.messages[0]
   
 end
