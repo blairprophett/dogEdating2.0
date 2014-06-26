@@ -5,7 +5,6 @@ class ConversationsController < ApplicationController
   end
 
   def send_msg
-
     user1 = current_user
     user2 = User.find(params[:conversation][:recipient])
     dog = Dog.find(params[:conversation][:dog])
