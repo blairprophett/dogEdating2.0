@@ -14,17 +14,17 @@ class ConversationsController < ApplicationController
     
     @message = user1.send_message(user2, body, subject)
       flash[:notice] = "Your message has been sent!"
-      redirect_to '/'
+      redirect_to '/messages/inbox'
   end
 
   def show
     @user = current_user
-    @messages = @user.mailbox.conversations[0].messages[0]
+    @conversations = @user.mailbox.conversations
   end
 
   def inbox
     @user = current_user
-    @messages = @user.mailbox.conversations[0].messages[0]
+    @conversations = @user.mailbox.conversations
   end
 
   # @convos = @user.mailbox.conversations

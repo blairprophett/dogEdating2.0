@@ -1,6 +1,17 @@
-<h2>My Messages</h2>
+<!-- <h2>My Messages</h2>
 
 <h3>Sent:</h3>
-<%= link_to @messages.subject, '/messages/:id' %><br/>
+<%#= link_to @messages.subject, '/messages/:id' %><br/> -->
 
 
+<%# @conversations.each do |conversation| %>
+  <%#= link_to conversation.subject, conversation.subject %><br>
+<%# end %>  
+<h1>Inbox</h1>
+<% current_user.mailbox.inbox.each do |conversation| %>
+  <%= link_to conversation.subject, conversation.subject %> | <%= mail_to conversation.last_sender.dog.name %><br>
+<% end %>
+<h1>Sent</h1>
+<% current_user.mailbox.sentbox.each do |conversation| %> 
+  <div style="background-color:white"><%= link_to conversation.subject, conversation.subject %> | <%= mail_to conversation.last_sender.dog.name %></div>
+<% end %>
