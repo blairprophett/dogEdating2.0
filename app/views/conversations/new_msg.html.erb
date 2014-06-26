@@ -1,4 +1,4 @@
-<h2>Write a Message</h2>
+<h2>Message <%= @user.dog.name %></h2><br/>
 
 <%= form_for :conversation, method: :post, url: '/messages' do |f| %>
  <%= f.hidden_field :recipient, value: @user.id %>

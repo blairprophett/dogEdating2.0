@@ -15,6 +15,7 @@
               <li><%= link_to('New Dog', '/dogs/new') %></li>
             <% else %>
               <li><%= link_to('My Pup', dog_path(current_user.dog)) %></li>
+              <li><%= link_to('My Inbox', messages_inbox_path) %></li>
             <% end %>
         <% else %>
           <li><%= link_to 'About Us', '/about' %></li>
