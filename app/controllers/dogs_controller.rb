@@ -30,12 +30,12 @@ before_filter :current_user, only: [:create, :new, :destroy]
   def destroy
     Dog.find_by_id(params[:id]).destroy
 
-    if @dog.nil?
-      flash[:alert] = "Oops! You don't have permissions for that."
-      redirect_to dog_path(params[:id])
-    else 
+    if current_user.dog
       render :destroy
       redirect_to '/'
+    else
+      flash[:alert] = "Oops! You don't have permissions for that."
+      redirect_to dog_path(params[:id])
     end
   end
 
