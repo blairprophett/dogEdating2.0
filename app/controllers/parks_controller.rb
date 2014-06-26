@@ -22,6 +22,7 @@ class ParksController < ApplicationController
     @results = JSON.parse(@request)
 
     @yelp_info = @results['businesses']
+    # binding.pry
   end
 
   def search
@@ -66,7 +67,7 @@ class ParksController < ApplicationController
 
   private
     def park_params
-      params.require(:park).permit(:yelp_id, :name, :street_address, :city, :state, :zip, :img_url)
+      params.require(:park).permit(:yelp_id, :address, :name, :street_address, :city, :state, :zip, :img_url)
     end
 
 end

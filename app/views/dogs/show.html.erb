@@ -13,11 +13,12 @@
   <% end %>
 </div><br/><br/>
 
-<%= form_for :conversation, method: :get, url: '/messages' do |f| %>
-  <%= f.hidden_field :recipient, value: @dog.user.id %>
-  <%= f.submit "Message Me!", class: 'btn btn-default' %>
-<% end %><br/>
-<% #binding.pry %>
+<% if @dog != current_user.dog %>
+  <%= form_for :conversation, method: :get, url: '/messages' do |f| %>
+    <%= f.hidden_field :recipient, value: @dog.user.id %>
+    <%= f.submit "Message Me!", class: 'btn btn-default' %>
+  <% end %><br/>
+<% end %>
 
 <%= link_to 'Search Dog Parks', '/search', class: 'btn btn-default' %><br/><br/>
 

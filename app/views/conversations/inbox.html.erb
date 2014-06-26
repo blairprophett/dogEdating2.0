@@ -1,5 +1,6 @@
-<h2>My Inbox</h2><br/>
+<h2>My Messages</h2>
 
-<%#= @messages.recipient %>
-<strong>Subject: </strong><%= @messages.subject %><br/>
-<strong>Message: </strong><%= @messages.body %><br/>
+<h3>Sent:</h3>
+<%= link_to @messages.subject, '/messages/:id' %><br/>
+
+

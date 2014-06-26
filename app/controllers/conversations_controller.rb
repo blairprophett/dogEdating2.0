@@ -18,7 +18,8 @@ class ConversationsController < ApplicationController
   end
 
   def show
-
+    @user = current_user
+    @messages = @user.mailbox.conversations[0].messages[0]
   end
 
   def inbox
