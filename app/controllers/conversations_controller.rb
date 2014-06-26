@@ -8,23 +8,28 @@ class ConversationsController < ApplicationController
 
     user1 = current_user
     user2 = User.find(params[:conversation][:recipient])
+    dog = Dog.find(params[:conversation][:dog])
 
     body = params[:conversation][:body]
     subject = params[:conversation][:subject]
     
     @message = user1.send_message(user2, body, subject)
       flash[:notice] = "Your message has been sent!"
-      redirect_to '/'
+      redirect_to '/messages/inbox'
   end
 
   def show
     @user = current_user
-    @messages = @user.mailbox.conversations[0].messages[0]
+    @conversations = @user.mailbox.conversations
   end
 
   def inbox
     @user = current_user
-    @messages = @user.mailbox.conversations[0].messages[0]
+    @conversations = @user.mailbox.conversations
+    #@body = @conversations.first.messages[0][:body]
+    @inbox = @user.mailbox.inbox
+    @sentbox = @user.mailbox.sentbox
+    # binding.pry
   end
 
   # @convos = @user.mailbox.conversations

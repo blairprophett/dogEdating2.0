@@ -1,6 +1,13 @@
 <h2>My Messages</h2>
 
-<h3>Sent:</h3>
-<%= link_to @messages.subject, '/messages/:id' %><br/>
-
-
+<h1>Inbox</h1>
+<% @inbox.each do |conversation| %>
+  <div class="inbox"><%= link_to conversation.subject, conversation.subject %>
+  | <%= link_to conversation.last_sender.dog.name %> | <%= @body %></div>
+<% end %>
+<h1>Sent</h1>
+<% @sentbox.each do |conversation| %> 
+  <% i = 0 %>
+  <div class="inbox"><%= link_to conversation.subject, conversation.subject %> | <%= link_to conversation.recipients[i].dog.name %></div>
+  <% i += 1 %>
+<% end %>
