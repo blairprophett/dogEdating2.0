@@ -1,8 +1,11 @@
 <%= form_for @dog, :html => {:multipart => true} do |f| %>
-  <%= f.text_field :name, placeholder: 'Name' %><br/>
-  <%= f.text_field :breed, placeholder: 'Breed' %><br/>
-  <%= f.text_field :age, placeholder: 'Age' %><br/>
-  <%#= select("dog", "park_id", Park.pluck(:name, :id), {:prompt => 'Home Park'}) %>
-  <%= f.file_field :image, placeholder: 'Image' %><br/>
-  <%= f.submit nil, :class => 'btn btn-primary' %><br/>
+  <%= f.text_field :name, placeholder: 'Name' %><br/><br/>
+  <%= f.text_field :breed, placeholder: 'Breed' %><br/><br/>
+  <%= f.text_field :age, placeholder: 'Age' %><br/><br/>
+  <div id="photo_attachment_container">
+    <div class="wrapper">
+      <%= f.file_field :image %><br/><br/>
+    </div>
+  </div>
+  <%= f.submit nil, class: 'btn btn-primary' %><br/>
 <% end %>
