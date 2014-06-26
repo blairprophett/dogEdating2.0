@@ -6,8 +6,8 @@ class ParksController < ApplicationController
            limit: 15,
            term: 'dog park'
           }
-
-    address = Geocoder.search(params[:address])
+          
+    address = Geocoder.search(params[:park][:address])
 
     if address.first == nil
       @coordinates = { latitude: 37.7577, longitude: -122.4376 }
