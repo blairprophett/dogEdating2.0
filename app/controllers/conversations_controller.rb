@@ -8,6 +8,7 @@ class ConversationsController < ApplicationController
 
     user1 = current_user
     user2 = User.find(params[:conversation][:recipient])
+    dog = Dog.find(params[:conversation][:dog])
 
     body = params[:conversation][:body]
     subject = params[:conversation][:subject]
@@ -25,6 +26,10 @@ class ConversationsController < ApplicationController
   def inbox
     @user = current_user
     @conversations = @user.mailbox.conversations
+    #@body = @conversations.first.messages[0][:body]
+    @inbox = @user.mailbox.inbox
+    @sentbox = @user.mailbox.sentbox
+    # binding.pry
   end
 
   # @convos = @user.mailbox.conversations

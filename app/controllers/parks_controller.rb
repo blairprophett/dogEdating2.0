@@ -6,7 +6,7 @@ class ParksController < ApplicationController
            limit: 15,
            term: 'dog park'
           }
-          
+
     address = Geocoder.search(params[:park][:address])
 
     if address.first == nil
@@ -22,7 +22,6 @@ class ParksController < ApplicationController
     @results = JSON.parse(@request)
 
     @yelp_info = @results['businesses']
-    # binding.pry
   end
 
   def search
@@ -41,18 +40,7 @@ class ParksController < ApplicationController
       @park = Park.ensure_from_yelp_data(park_params)
       redirect_to(park_path @park)
     end
-  end
-
-  # def show_from_yelp
-  #   @park = Park.ensure_from_yelp_data(park_params)
-
-  #   if @park.nil?
-  #     flash[:alert] = "Oops! That resource is not available."
-  #     redirect_to '/parks'
-  #   else
-  #     render :show
-  #   end
-  # end  
+  end 
 
   def show
     @park = Park.find_by_id(params[:id])

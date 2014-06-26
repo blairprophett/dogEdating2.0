@@ -139,16 +139,17 @@ header {
   font-size: 19px;
 }
 
-/* _sidebar_left */
+/* _sidebar_right */
 .HolyGrail-sidebar-right {
   background-image: url('<%= asset_path('wavegrid.png')%>');
-  margin: 15px 15px 0px 15px;
+  margin: 15px 10px 15px 10px ;
   border-radius: 10px;
   flex: 0 0 12em;
 }
 
-.HolyGrail-sidebar-right > img {
+.HolyGrail-sidebar-right img {
   width: 120px;
+  margin: 20px 0px 20px 4px;
 }
 
 /* parks#search */
@@ -185,6 +186,18 @@ header {
   border-radius: 20px;
 }
 
+/* messages#inbox */
+
+.inbox {
+  background-image: url('<%= asset_path('wavegrid.png')%>');
+  margin: 5px 20px 5px 20px;
+  border-radius: 15px;
+}
+
+.inbox a {
+  color: #838B8B;
+  }
+
 @media (min-width: 768px) {
   .HolyGrail-body {
     flex-direction: row;
@@ -203,11 +216,12 @@ header {
   .HolyGrail-sidebar-left ul > li > a {
     color: grey;
     font-size: 20px;
+    margin-top: 30px;
   }
 
   .HolyGrail-sidebar-left ul > li > a:hover {
   font-size: 21px;
-}
+  }
 
   .HolyGrail-sidebar-right > img {
     width: 120px;
@@ -215,7 +229,11 @@ header {
   }
 
   .HolyGrail-sidebar-right {
-    margin: 0px 10px 0px 0px;
+    margin: 15px 15px 0px 15px;
+  }
+
+  .inbox {
+  margin: 5px 50px 5px 50px;
   }
 }
 
