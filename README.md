@@ -29,7 +29,6 @@ To start the rails server, run:
 
 ```
 $ rails s
-
 ```
 
 Please contact Blair at blaircuny@gmail.com with any questions or concerns. Pull requests welcome!
