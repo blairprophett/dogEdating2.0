@@ -1,6 +1,6 @@
-**dogEdating2.0**
+#dogEdating2.0
 
-Blair Cuny created this applications as the final project for General Assembly's Web Development Immersive Course. 
+Blair Cuny created this application as the final project for General Assembly's Web Development Immersive Course. 
 
 **Getting Started:**
 
@@ -11,14 +11,12 @@ Run:
 ```
 $ rake db:create
 $ rake db:migrate
-
 ```
 
 To install the Ruby gems used in this project, run:
 
 ```
 $ bundle install
-
 ```
 
 dogEdating2.0 uses 3 API keys
