@@ -31,4 +31,6 @@ To start the rails server, run:
 $ rails s
 ```
 
-Please contact Blair at blaircuny@gmail.com with any questions or concerns. Pull requests welcome!
+This project is still in progress, in particular the messaging ability.
+
+Please contact Blair Cuny at blaircuny@gmail.com with any questions or concerns. Pull requests welcome!
