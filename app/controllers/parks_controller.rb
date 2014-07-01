@@ -3,29 +3,29 @@ class ParksController < ApplicationController
 
   def index
     yelp_params = {
-           limit: 15,
-           term: 'dog park'
-          }
+      limit: 15,
+      term: 'dog park'
+    }
 
     address = Geocoder.search(params[:park][:address])
 
-    if address.first == nil
+    if address.first.nil?
       @coordinates = { latitude: 37.7577, longitude: -122.4376 }
     else
-      @latitude = address.first.data["point"]["coordinates"].first
-      @longitude = address.first.data["point"]["coordinates"].last
+      @latitude = address.first.data['point']['coordinates'].first
+      @longitude = address.first.data['point']['coordinates'].last
       @coordinates = { latitude: @latitude, longitude: @longitude }
     end
 
     @request = Yelp.client.search_by_coordinates(@coordinates, yelp_params).to_json
-    
+
     @results = JSON.parse(@request)
 
     @yelp_info = @results['businesses']
   end
 
   def search
-     @results = Park.near(params[:location])
+    @results = Park.near(params[:location])
   end
 
   def new
@@ -40,13 +40,13 @@ class ParksController < ApplicationController
       @park = Park.ensure_from_yelp_data(park_params)
       redirect_to(park_path @park)
     end
-  end 
+  end
 
   def show
     @park = Park.find_by_id(params[:id])
-    
+
     if @park.nil?
-      flash[:alert] = "Oops! That resource is not available."
+      flash[:alert] = 'Oops! That resource is not available.'
       redirect_to '/parks'
     else
       render :show
@@ -54,8 +54,7 @@ class ParksController < ApplicationController
   end
 
   private
-    def park_params
-      params.require(:park).permit(:yelp_id, :address, :name, :street_address, :city, :state, :zip, :img_url)
-    end
-
+  def park_params
+    params.require(:park).permit(:yelp_id, :address, :name, :street_address, :city, :state, :zip, :img_url)
+  end
 end

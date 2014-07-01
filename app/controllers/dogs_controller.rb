@@ -1,8 +1,8 @@
 class DogsController < ApplicationController
-#confirms user is signed in
-before_action :authenticate_user!
+  # confirms user is signed in
+  before_action :authenticate_user!
 
-before_filter :current_user, only: [:create, :new, :destroy]
+  before_filter :current_user, only: [:create, :new, :destroy]
 
   def new
     @dog = Dog.new
@@ -10,13 +10,13 @@ before_filter :current_user, only: [:create, :new, :destroy]
     if current_user.dog.nil?
       render :new
     else
-      flash[:alert] = "Sorry! We only allow one dog per account at this time."
+      flash[:alert] = 'Sorry! We only allow one dog per account at this time.'
       redirect_to '/'
     end
   end
 
   def create
-    dog = Dog.new dog_params 
+    dog = Dog.new dog_params
     dog.user_id = current_user.id
     if dog.save
       redirect_to(dog)
@@ -40,16 +40,15 @@ before_filter :current_user, only: [:create, :new, :destroy]
 
   def show
     @dog = Dog.find_by_id(params[:id])
-    
+
     if @dog.nil?
-      flash[:alert] = "Oops! That resource is not available."
+      flash[:alert] = 'Oops! That resource is not available.'
       redirect_to '/'
     end
   end
 
-
   private
-    def dog_params
-      params.require(:dog).permit(:name, :breed, :age, :image)
-    end
+  def dog_params
+    params.require(:dog).permit(:name, :breed, :age, :image)
+  end
 end

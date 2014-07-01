@@ -7,9 +7,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   acts_as_messageable
- 
+
   # Returns the name of the user
   def name
-   return "#{first_name} #{last_name}"
+   "#{first_name} #{last_name}"
   end
 end

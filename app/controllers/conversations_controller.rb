@@ -1,5 +1,4 @@
 class ConversationsController < ApplicationController
-
   def new_msg
     @user = User.find(params[:conversation][:recipient])
   end
@@ -11,10 +10,10 @@ class ConversationsController < ApplicationController
 
     body = params[:conversation][:body]
     subject = params[:conversation][:subject]
-    
+
     @message = user1.send_message(user2, body, subject)
-      flash[:notice] = "Your message has been sent!"
-      redirect_to '/messages/inbox'
+    flash[:notice] = 'Your message has been sent!'
+    redirect_to '/messages/inbox'
   end
 
   def show
@@ -28,5 +27,4 @@ class ConversationsController < ApplicationController
     @inbox = @user.mailbox.inbox
     @sentbox = @user.mailbox.sentbox
   end
-  
 end

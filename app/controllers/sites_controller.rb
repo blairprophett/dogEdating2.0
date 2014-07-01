@@ -1,5 +1,4 @@
 class SitesController < ApplicationController
-
   def landing
   end
 
@@ -8,6 +7,4 @@ class SitesController < ApplicationController
 
   def contact
   end
-
 end
-

@@ -2,7 +2,7 @@ class FavoritesController < ApplicationController
   before_action :authenticate_user!
   before_action :load_dog
 
-  #ensure method in model
+  # ensure method in model
   def create
     @favorite = @dog.favorites.ensure_favorite_from_park_data(new_favorite_params)
     redirect_to dog_path(@dog)
@@ -10,13 +10,12 @@ class FavoritesController < ApplicationController
 
   private
 
-    def new_favorite_params
-      params.require(:favorite).permit(:park_id)
-    end 
+  def new_favorite_params
+    params.require(:favorite).permit(:park_id)
+  end
 
-    def load_dog
-      @dog = Dog.find(params[:dog_id])
-      raise "Oops! You Do Not Have Access To That." unless @dog.user == current_user
-    end
-
+  def load_dog
+    @dog = Dog.find(params[:dog_id])
+    fail 'Oops! You Do Not Have Access To That.' unless @dog.user == current_user
+  end
 end
