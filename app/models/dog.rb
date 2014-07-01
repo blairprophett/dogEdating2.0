@@ -8,7 +8,6 @@ class Dog < ActiveRecord::Base
   validates :breed, presence: true, length: { minimum: 2 }
   validates :image, presence: true
 
-  #readys model for CarrierWave image uploader
+  # readys model for CarrierWave image uploader
   mount_uploader :image, ImageUploader
-
 end
